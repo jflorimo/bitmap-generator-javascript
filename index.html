@@ -6,6 +6,7 @@
 		<script src="jquery.base64.js"></script>
 		
 		<script>
+			//From http://www.worldwidewhat.net/2012/07/how-to-draw-bitmaps-using-javascript/
 			// Class containing image data
 			function image(w, h)
 			{
@@ -117,6 +118,14 @@
 			{
 				return String.fromCharCode(232, 255, 13, 0);
 			}
+
+			//definition de la racine de l'arbre
+			function drawRoot(taille)
+			{
+				if (taille > 340)
+					taille = 340;
+				
+			}
 			function drawImage()
 			{
 				var img = new image(360, 360);
@@ -128,11 +137,12 @@
 
 				var x = 0;
 				var y = 0;
-				for (var i = 0; i < name.length; i++)
+
+				drawRoot(name[i].charCodeAt(0));
+				for (var i = 1; i < name.length; i++)
 				{
 					drawPixel(img, i * size, size, cTurquoise());
 					// console.log("i:"+i+" x*10:"+i*size);
-					console.log(name[i][0]);
 				}
 
 				// String.fromCharCode(255, 0, 0, 0) BGR [and not RGB]
